@@ -86,6 +86,7 @@ celerybeat-schedule
 .venv
 venv/
 ENV/
+env/
 
 # Spyder project settings
 .spyderproject
@@ -99,3 +100,9 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# ignore the data stored in this directory for convenience
+data/
+
+# ignore IDE files
+.idea/
