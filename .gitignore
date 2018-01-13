@@ -107,3 +107,6 @@ testdata/
 
 # ignore IDE files
 .idea/
+
+# ignore project configuration
+config.json
