@@ -15,8 +15,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-This project is managed using the [Conda](https://conda.io/docs/) package manager.
-Conda is the easiest and fastest way to get setup.
+This project uses [Apache Spark](https://spark.apache.org).  You'll need to have Spark installed on the target cluster.  
+The ```SPARK_HOME``` environment variable should be set, and the Spark binaries should be in your system path.
+
+Dependencies are managed using the [Conda](https://conda.io/docs/) package manager.  You'll need to install Conda to get setup.
 
 ### Installing Dependencies
 
@@ -47,12 +49,14 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [Python 3.6](https://www.python.org/)
+* [Apache Spark](https://spark.apache.org)
 * [PySpark](https://spark.apache.org/docs/0.9.0/python-programming-guide.html) - Python API for [Apache Spark](https://spark.apache.org/)
 * [Conda](https://conda.io/docs/) - Package Manager
 
 ## Contributing
 
 There are no specific guidelines for contributing.  If you see something that could be improved, send a pull request!
+If you think something should be done different (or is just-plain-broke), please create an issue.
 
 ## Versioning
 
