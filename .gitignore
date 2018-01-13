@@ -103,6 +103,7 @@ env/
 
 # ignore the data stored in this directory for convenience
 data/
+testdata/
 
 # ignore IDE files
 .idea/
