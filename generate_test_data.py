@@ -1,5 +1,6 @@
 from math import floor
 import random
+import os
 
 """
 This script writes text files with well-known word counts for the purpose of testing.
@@ -41,18 +42,36 @@ def int_to_word(n, capitalize=False, punctuate=False):
 
     return word
 
-# write some words with no punctuation
-with open('testdata/clean.txt', 'w') as file:
+
+# create the testdata directory if not exists
+if not os.path.exists("testdata"):
+    os.makedirs("testdata")
+
+
+# write some words with no punctuation and no caps
+with open('testdata/vanilla.txt', 'w') as file:
     for num in list(range(1, 51)):
         for i in list(range(0, num)):
             word = int_to_word(num, capitalize=False, punctuate=False) + " "
             file.write(word)  # repeat the word num times
         file.write("\n")  # separate words onto different lines
 
+# write a file with some words that are capitalized
+with open('testdata/capitalized.txt', 'w') as file:
     # write some words filled with capitalization and punctuation!
     for num in list(range(1, 51)):
         for i in list(range(0, num)):
             cap = random.random() < 0.25  # capitalize 25% of the words (25% chosen arbitrarily; we just want some)
+            word = int_to_word(num, capitalize=cap, punctuate=False) + " "
+            file.write(word)  # repeat the word num times
+        file.write("\n")  # separate words onto different lines
+
+# write a file with some words capitalized and some words punctuated
+with open('testdata/punctuated.txt', 'w') as file:
+    # write some words filled with capitalization and punctuation!
+    for num in list(range(1, 51)):
+        for i in list(range(0, num)):
+            cap = random.random() < 0.25  # capitalize 25% of the words
             punc = random.random() < 0.10  # add punctuation to 10% of the words
             word = int_to_word(num, capitalize=cap, punctuate=punc) + " "
             file.write(word)  # repeat the word num times
