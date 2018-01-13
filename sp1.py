@@ -8,7 +8,7 @@ APP_NAME = config.get("APP_NAME", "zachdj-p0-sp1")
 CLUSTER = config.get("CLUSTER_URI", "local")
 DATA_LOCATION = config.get("DATA_LOCATION", "testdata")
 
-NUM_WORDS = 40   # controls how many of the msot frequent words are kept and output to the json file
+NUM_WORDS = 40   # controls how many of the most frequent words are kept and output to the json file
 
 conf = SparkConf().setAppName(APP_NAME).setMaster(CLUSTER)
 sc = SparkContext(conf=conf)
