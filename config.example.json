@@ -1,0 +1,5 @@
+{
+  "APP_NAME" : "My Fancy Schmancy Project 0 App",
+  "CLUSTER_URI" : "hdfs://...",
+  "DATA_LOCATION" : "path/to/data"
+}
