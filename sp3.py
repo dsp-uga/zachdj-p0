@@ -26,6 +26,7 @@ text_file = sc.textFile(DATA_LOCATION)  # reads the lines from all text files in
 words = text_file.flatMap(lambda line: line.split())
 words = words.map(lambda word: word.strip(punctuation.value))
 words = words.filter(lambda word: word.lower() not in stopwords.value)
+words = words.filter(lambda word: len(word) > 1)
 words = words.map(lambda word: (word.lower(), 1))
 
 counts = words.reduceByKey(lambda a, b: a + b)
