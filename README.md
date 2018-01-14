@@ -66,7 +66,7 @@ and rename it to ```config.json```.  The following variables should be set
 ## Contributing
 
 There are no specific guidelines for contributing.  If you see something that could be improved, send a pull request!
-If you think something should be done different (or is just-plain-broke), please create an issue.
+If you think something should be done differently (or is just-plain-broken), please create an issue.
 
 ## Versioning
 
