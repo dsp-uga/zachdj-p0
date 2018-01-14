@@ -36,15 +36,25 @@ This will create a virtual environment named "zachdj-p0".  Activate the virtual 
 conda activate zachdj-p0
 ```
 
-After the environment has been activated, the subprojects can be run as follows
+After the environment has been activated, the subprojects can be run as follows 
+(replace sp1.py with the script for whichever subproject you wish to run)
 
 ```
 python sp1.py
 ```
 
-## Deployment
+### Configuration variables
+These scripts support user-defined configuration variables that tell the scripts the location of 
+the text data and the location of the cluster on which to run.
 
-Add additional notes about how to deploy this on a live system
+The config.json file is ignored, so to get started, create a copy of ```config.example.json``` 
+and rename it to ```config.json```.  The following variables should be set
+
+* ```APP_NAME``` - If running on a cluster with a GUI, this name will show up while the job is running
+   (defaults to 'zachdj-p0')
+* ```CLUSTER_URI``` - The location of the cluster on which the jobs should be run (defaults to 'local')
+* ```DATA_LOCATION``` - The local/remote directory, file name, or HDFS from which the text files should be read 
+ (defaults to 'testdata')
 
 ## Built With
 
