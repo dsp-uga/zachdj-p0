@@ -28,12 +28,6 @@ NUM_WORDS = 5   # controls how many of top words will be kept for *each* documen
 conf = SparkConf().setAppName(APP_NAME).setMaster(CLUSTER)
 sc = SparkContext(conf=conf)
 
-# broadcast list of stopwords to all nodes
-with open('stopwords.txt', 'r') as stopwords_file:
-    stopwords_list = stopwords_file.readlines()
-stopwords_list = list(map(lambda word: word.strip().lower(), stopwords_list))
-stopwords = sc.broadcast(stopwords_list)
-
 # broadcast list of punctuation symbols to strip to all nodes
 punctuation = sc.broadcast('.,:;\'`!?')
 
@@ -91,10 +85,6 @@ words = words.map(lambda tuple: (tuple[0].lower(), tuple[1]))
 # strip leading/trailing punctuation and ensure that the word is longer than 1 letter (leftover from subproject C)
 words = words.map(lambda tuple: (tuple[0].strip(punctuation.value), tuple[1]))
 words = words.filter(lambda tuple: len(tuple[0]) > 1)
-
-# remove stopwords manually
-# ( they would all have tfidf scores of zero, but this way is probably more efficient)
-words = words.filter(lambda tuple: tuple[0] not in stopwords.value)
 
 # sum up count vectors
 counts = words.reduceByKey(lambda vec1, vec2: vec1 + vec2)
